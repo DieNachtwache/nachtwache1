@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahrer App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="loginContainer" class="container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <input type="text" id="loginUsername" placeholder="Benutzername" required>
+            <input type="password" id="loginPassword" placeholder="Passwort" required>
+            <button type="submit">Einloggen</button>
+        </form>
+        <p>Kein Konto? <a href="#" id="registerLink">Registrieren</a></p>
+    </div>
+
+    <div id="registerContainer" class="container" style="display:none;">
+        <h1>Registrieren</h1>
+        <form id="registerForm">
+            <input type="text" id="registerUsername" placeholder="Benutzername" required>
+            <input type="password" id="registerPassword" placeholder="Passwort" required>
+            <button type="submit">Registrieren</button>
+        </form>
+        <p>Bereits ein Konto? <a href="#" id="loginLink">Einloggen</a></p>
+    </div>
+
+    <div id="appContainer" class="container" style="display:none;">
+        <h1>Fahrer Übersicht</h1>
+        <button id="logoutButton">Ausloggen</button>
+        <ul id="fahrerListe"></ul>
+        <h2>Neuen Fahrer hinzufügen</h2>
+        <form id="fahrerForm">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="text" id="rang" placeholder="Rang" required>
+            <input type="text" id="discordProfil" placeholder="Discord Profil" required>
+            <input type="date" id="beitrittsDatum" required>
+            <button type="submit">Hinzufügen</button>
+        </form>
+    </div>
+
+    <div id="fahrerAkteModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="akteName"></h2>
+            <h3>Punkte hinzufügen</h3>
+            <form id="punkteForm">
+                <input type="date" id="punkteDatum" required>
+                <input type="text" id="punkteDetails" placeholder="Details" required>
+                <input type="number" id="punkteWert" placeholder="Wert" required>
+                <button type="submit">Hinzufügen</button>
+            </form>
+            <table id="punkteTabelle">
+                <thead>
+                    <tr>
+                        <th>Datum</th>
+                        <th>Details</th>
+                        <th>Wert</th>
+                        <th>Aktionen</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close-edit">&times;</span>
+            <h2 id="editTitle">Bearbeiten</h2>
+            <form id="editForm">
+                <input type="hidden" id="editId">
+                <input type="date" id="editDatum" required>
+                <input type="text" id="editDetails" placeholder="Details" required>
+                <input type="number" id="editWert" placeholder="Wert" required>
+                <button type="submit">Speichern</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
